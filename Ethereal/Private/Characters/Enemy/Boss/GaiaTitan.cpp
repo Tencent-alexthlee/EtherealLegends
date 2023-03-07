@@ -74,8 +74,8 @@ AGaiaTitan::AGaiaTitan(const FObjectInitializer& ObjectInitializer)
 	HitFX->SetRelativeLocation(FVector(0, 0, 30));
 
 	DisappearFX->SetRelativeLocation(FVector(0, 0, -20));
-
-	SpotLight = ObjectInitializer.CreateDefaultSubobject<USpotLightComponent>(this, TEXT("SpotLight"));
+	
+	USpotLightComponent* SpotLight = ObjectInitializer.CreateDefaultSubobject<USpotLightComponent>(this, TEXT("SpotLight"));
 	SpotLight->SetupAttachment(GetMesh());
 	SpotLight->SetRelativeLocation(FVector(0, 0, 2000));
 	SpotLight->SetRelativeRotation(FRotator(-90, 0, 0));
