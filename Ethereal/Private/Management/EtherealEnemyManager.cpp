@@ -119,7 +119,10 @@ void AEtherealEnemyManager::DestroyAllEnemies()
 void AEtherealEnemyManager::SpawnNode(AEnemyNode* Node)
 {
 	AEtherealEnemyMaster* Enemy = nullptr;
-
+	AEnemyNode* Node1 = Node;
+	if(!Node1){
+		return;
+	}
 	//FTransform transform = Node->GetActorTransform();  // Set Spawn Location
 	int32 level = Node->EnemyLevel;  // Set Enemy Level
 
