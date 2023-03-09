@@ -99,7 +99,6 @@ void AEtherealEnemyManager::SpawnAllNodes()
 	for (TActorIterator<AEnemyNode> ActorItr(GetWorld()); ActorItr; ++ActorItr)
 	{
 		AEnemyNode* Node = *ActorItr; // get the instance of the node
-
 		SpawnNode(Node); // Spawn the enemy related to this node instance
 	}
 }
@@ -110,7 +109,7 @@ void AEtherealEnemyManager::DestroyAllEnemies()
 	// iterate through the world for all Enemy Nodes
 	for (TActorIterator<AEtherealEnemyMaster> ActorItr(GetWorld()); ActorItr; ++ActorItr)
 	{
-		AEtherealEnemyMaster* Enemy = *ActorItr; // get the instance of the enemy
+		AEtherealEnemyMaster* Enemy = ActorItr; // get the instance of the enemy
 
 		Enemy->DestroyEnemy();  //  Destroy it
 	}
@@ -119,7 +118,7 @@ void AEtherealEnemyManager::DestroyAllEnemies()
 void AEtherealEnemyManager::SpawnNode(AEnemyNode* Node)
 {
 	AEtherealEnemyMaster* Enemy = nullptr;
-	AEnemyNode* Node1 = Node;
+	AEnemyNode* Node1 = *Node;
 	if(!Node1){
 		return;
 	}
